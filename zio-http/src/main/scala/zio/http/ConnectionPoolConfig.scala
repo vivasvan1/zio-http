@@ -8,6 +8,9 @@
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
+import zio.config.magnolia.DeriveConfigDescriptor._
+import zio.config.typesafe.TypesafeConfig
+import zio.config.{ConfigDescriptor, ConfigSource, generateDocs}
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
@@ -81,5 +84,11 @@ object ConnectionPoolConfig {
       }
 
     disabled orElse fixed orElse dynamic orElse fixedPerHost orElse dynamicPerHost
+  }
+
+  def generateConfigDocs: String = {
+    val descriptor: ConfigDescriptor[ConnectionPoolConfig] = descriptor[ConnectionPoolConfig]
+    val docs                                               = generateDocs(descriptor).toTable.toGithubFlavouredMarkdown
+    docs
   }
 }

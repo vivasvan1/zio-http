@@ -8,6 +8,8 @@
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
+import zio.config.magnolia.DeriveConfigDescriptor._
+import zio.config.{ConfigDescriptor, generateDocs}
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
@@ -40,6 +42,12 @@ import io.netty.handler.timeout.ReadTimeoutHandler
 trait NettyConnectionPool extends ConnectionPool[JChannel]
 
 object NettyConnectionPool {
+
+  def generateConfigDocs: String = {
+    val descriptor: ConfigDescriptor[NettyConnectionPool] = descriptor[NettyConnectionPool]
+    val docs                                              = generateDocs(descriptor).toTable.toGithubFlavouredMarkdown
+    docs
+  }
 
   protected def createChannel(
     channelFactory: JChannelFactory[JChannel],
@@ -170,7 +178,13 @@ object NettyConnectionPool {
     decompression: Decompression,
     idleTimeout: Option[Duration],
     connectionTimeout: Option[Duration],
-  )
+  ) {
+    def generateConfigDocs: String = {
+      val descriptor: ConfigDescriptor[PoolKey] = descriptor[PoolKey]
+      val docs                                  = generateDocs(descriptor).toTable.toGithubFlavouredMarkdown
+      docs
+    }
+  }
 
   private final class ZioNettyConnectionPool(
     pool: ZKeyedPool[Throwable, PoolKey, JChannel],
