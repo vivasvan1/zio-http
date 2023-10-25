@@ -1,3 +1,5 @@
+# Configuration Documentation
+
 import zio.config._
 import zio.config.magnolia.DeriveConfigDescriptor
 import java.nio.file.{Files, Paths}
