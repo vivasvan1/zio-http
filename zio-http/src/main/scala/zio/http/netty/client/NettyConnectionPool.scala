@@ -45,7 +45,7 @@ object NettyConnectionPool {
 
   def generateConfigDocs: String = {
     val descriptor: ConfigDescriptor[NettyConnectionPool] = descriptor[NettyConnectionPool]
-    val docs = generateDocs(descriptor).toTable.toGithubFlavouredMarkdown
+    val docs                                              = generateDocs(descriptor).toTable.toGithubFlavouredMarkdown
     docs
   }
 
@@ -181,7 +181,7 @@ object NettyConnectionPool {
   ) {
     def generateConfigDocs: String = {
       val descriptor: ConfigDescriptor[PoolKey] = descriptor[PoolKey]
-      val docs = generateDocs(descriptor).toTable.toGithubFlavouredMarkdown
+      val docs                                  = generateDocs(descriptor).toTable.toGithubFlavouredMarkdown
       docs
     }
   }
