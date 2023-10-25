@@ -1,6 +1,6 @@
 # Configuration Documentation
 
-import zio.config._
+import zio.config.\_
 import zio.config.magnolia.DeriveConfigDescriptor
 import java.nio.file.{Files, Paths}
 
@@ -49,7 +49,7 @@ URL
 .flatMap { url =>
 url.kind match {
 case url: URL.Location.Absolute => Right(url -> fixed)
-case _ => Left(Config.Error.InvalidData(message = s"Invalid value for ConnectionPoolConfig: $s"))
+case \_ => Left(Config.Error.InvalidData(message = s"Invalid value for ConnectionPoolConfig: $s"))
 }
 }
 },
