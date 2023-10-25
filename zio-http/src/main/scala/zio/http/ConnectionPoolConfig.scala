@@ -88,7 +88,7 @@ object ConnectionPoolConfig {
 
   def generateConfigDocs: String = {
     val descriptor: ConfigDescriptor[ConnectionPoolConfig] = descriptor[ConnectionPoolConfig]
-    val docs = generateDocs(descriptor).toTable.toGithubFlavouredMarkdown
+    val docs                                               = generateDocs(descriptor).toTable.toGithubFlavouredMarkdown
     docs
   }
 }
