@@ -33,3 +33,4 @@ import zio.config.{ConfigDescriptor, generateDocs}
 val descriptor: ConfigDescriptor[NettyConnectionPool] = descriptor[NettyConnectionPool]
 val docs = generateDocs(descriptor).toTable.toGithubFlavouredMarkdown
 println(docs)
+```
