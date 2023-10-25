@@ -1,11 +1,13 @@
 # Configuration Documentation
 
-import zio.config.\_
+import zio.config._
 import zio.config.magnolia.DeriveConfigDescriptor
 import java.nio.file.{Files, Paths}
 
 object ConfigurationDocs {
 def generateConfigurationDocs(): String = {
+import zio.config._
+import zio.config.magnolia.DeriveConfigDescriptor
 val config: Config[ConnectionPoolConfig] = {
 val disabled = Config.string.mapOrFail {
 case "disabled" => Right(ConnectionPoolConfig.Disabled)
