@@ -5,23 +5,18 @@ This document provides an overview of the configuration options available in the
 ## ConnectionPoolConfig
 
 ```scala
-import zio.config.magnolia.DeriveConfigDescriptor._
-import zio.config.{ConfigDescriptor, generateDocs}
+import zio.http.ConnectionPoolConfig
 
-val descriptor: ConfigDescriptor[ConnectionPoolConfig] = descriptor[ConnectionPoolConfig]
-val docs = generateDocs(descriptor).toTable.toGithubFlavouredMarkdown
-println(docs)
+println(ConnectionPoolConfig.generateConfigDocs)
 ```
 
 ## ZClient
 
 ```scala
 import zio.config.magnolia.DeriveConfigDescriptor._
-import zio.config.{ConfigDescriptor, generateDocs}
+import zio.http.ZClient
 
-val descriptor: ConfigDescriptor[ZClient[_, _, _, _]] = descriptor[ZClient[_, _, _, _]]
-val docs = generateDocs(descriptor).toTable.toGithubFlavouredMarkdown
-println(docs)
+println(ZClient.generateConfigDocs)
 ```
 
 ## NettyConnectionPool
